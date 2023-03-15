@@ -1,0 +1,337 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter;
+}
+
+#container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template:
+    "header header header header"
+    "main main main  aside"
+    "popular popular popular  popular";
+  padding: 0 1rem 2rem;
+  row-gap: 3rem;
+  column-gap: 2rem;
+}
+
+header {
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  padding: 4rem 0 0;
+  align-items: center;
+}
+
+nav {
+  display: flex;
+  gap: 2rem;
+}
+
+nav a {
+  color: #000;
+  text-decoration: none;
+}
+
+nav a:hover,
+nav a:focus {
+  color: hsl(5, 85%, 63%);
+}
+
+#closemenu{
+    display: none;
+}
+
+#openmenu {
+  display: none;
+}
+
+main {
+  grid-area: main;
+}
+
+main img {
+  width: 100%;
+}
+
+#mainNew {
+  display: flex;
+  padding: 2rem 0 0 0;
+}
+
+#mainNew h1 {
+  font-size: 3rem;
+  padding: 0 2rem 1rem 0;
+  font-weight: 800;
+  line-height: 1;
+}
+
+#mainNew div {
+  width: 50%;
+  flex-shrink: 0;
+}
+
+#mainAction {
+  padding: 0 1rem 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+#mainAction p {
+  color: hsl(236, 13%, 42%);
+  line-height: 1.5;
+}
+
+#mainAction button {
+  background: hsl(5, 85%, 63%);
+  color: hsl(36, 100%, 99%);
+  border: 0;
+  padding: 0.75rem 1.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.2rem;
+  cursor: pointer;
+}
+
+#mainAction button:hover,
+#mainAction button:focus {
+  background: hsl(240, 100%, 5%);
+}
+
+aside {
+  grid-area: aside;
+  background: hsl(240, 100%, 5%);
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+
+aside h2 {
+  color: hsl(35, 77%, 62%);
+  font-size: 2.25rem;
+  flex-shrink: 0;
+}
+
+aside div {
+  color: hsl(36, 100%, 99%);
+  height: 100%;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+}
+
+aside div:hover h3 {
+  color: hsl(35, 77%, 62%);
+}
+
+aside div h3 {
+  padding: 0.5rem 0;
+}
+
+aside div p {
+  font-weight: 400;
+  font-size: 0.8rem;
+  line-height: 1.75;
+}
+
+aside div:not(:last-child) {
+  border-bottom: 1px solid hsl(236, 13%, 42%);
+}
+
+section#popular {
+  grid-area: popular;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 2rem 0 0;
+}
+
+.popular {
+  display: flex;
+  gap: 1.5rem;
+  cursor: pointer;
+  align-items: flex-start;
+  width: 100%;
+  position: relative;
+}
+
+.popular:hover h4 {
+  color: hsl(5, 85%, 63%);
+}
+
+.popImg {
+  height: 100%;
+  width: 30%;
+  min-width: 80px;
+  flex-shrink: 0;
+  background: #000;
+  background-position: 50% 50%;
+  background-size: cover;
+  display: block;
+}
+
+.popular:nth-child(3n + 1) .popImg {
+  background-image: url(./assets/images/image-retro-pcs.jpg);
+}
+
+.popular:nth-child(3n + 2) .popImg {
+  background-image: url("./assets/images/image-top-laptops.jpg");
+}
+
+.popular:nth-child(3n) .popImg {
+  background-image: url(./assets/images/image-gaming-growth.jpg);
+}
+
+.popInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 70%;
+}
+
+.popNmbr {
+  font-size: 2rem;
+  font-weight: 700;
+  color: hsl(233, 8%, 79%);
+}
+
+.popInfo h4 {
+  font-weight: 800;
+  font-size: 1.25rem;
+}
+
+.popInfo p {
+  font-size: 0.9rem;
+  line-height: 1.75;
+  padding: 0.25rem 0;
+}
+
+footer {
+  text-align: center;
+  color: #000;
+  padding: 2rem;
+}
+
+footer a {
+  color: hsl(5, 85%, 63%);
+  text-decoration: none;
+  padding: 0.25rem;
+}
+
+footer a:hover,
+footer a:focus {
+  background-color: hsl(5, 85%, 63%);
+  color: hsl(240, 100%, 5%);
+}
+
+@media screen and (max-width: 750px) {
+  #container {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1rem;
+    gap: 2rem;
+  }
+
+  header {
+    padding: 0;
+  }
+
+  nav {
+    position: fixed;
+    width: 70%;
+    height: 100%;
+    top: 0;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1em 0.75em;
+    gap: 1em;
+    right: 0;
+    transform: translateX(100%);
+    transition: 0.2s ease-in-out;
+    background: hsl(36, 100%, 99%);
+    z-index: 9;
+    font-size:1.5rem;
+  }
+
+  nav.active {
+    transform: translateX(0);
+  }
+
+  nav::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: #0003;
+    z-index: 5;
+    width: 0;
+    transition: 0.2s;
+    transform: translateX(-100%);
+  }
+
+  nav.active::before {
+    width: 50%;
+  }
+
+  #closemenu{
+    display:block;
+    position: absolute;
+    right:1rem;
+    top:2.5rem;
+    background: transparent;
+    border:0;
+  }
+
+  #openmenu {
+    display: block;
+    border:0;
+    background: transparent;
+    font-size: 1em;
+  }
+
+  #mainNew {
+    flex-direction: column;
+    padding: 1rem 0 0;
+  }
+
+  #mainNew div {
+    width: 100%;
+  }
+
+  #mainAction {
+    padding: 0;
+    gap: 2rem;
+  }
+
+  aside {
+    margin-top: 2rem;
+  }
+
+  aside div {
+    padding: 1rem 0;
+  }
+
+  section#popular {
+    flex-direction: column;
+    padding: 2rem 0 0 0;
+    gap: 1.5rem;
+  }
+
+  .popular {
+    height: 100%;
+    align-items: stretch;
+  }
+
+  .popImg {
+    min-height: 80px;
+    height: auto;
+  }
+}
